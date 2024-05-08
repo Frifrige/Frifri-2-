@@ -57,10 +57,11 @@ class _ChooseAirportState extends State<ChooseAirport> {
                 width: MediaQuery.sizeOf(context).width,
                 padding: EdgeInsets.fromLTRB(16, 16, 0, 0),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: Color.fromRGBO(0, 0, 0, 0.12),
-                    )),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: Color.fromRGBO(0, 0, 0, 0.12),
+                  ),
+                ),
                 child: Column(
                   children: [
                     Row(
@@ -123,8 +124,6 @@ class _ChooseAirportState extends State<ChooseAirport> {
                   ],
                 ),
               ),
-
-              
             ],
           ),
         ),

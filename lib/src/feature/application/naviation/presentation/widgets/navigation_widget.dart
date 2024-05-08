@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:frifri/src/feature/direct_flight/presentation/screens/direct_fligths_screen.dart';
 import 'package:frifri/src/feature/more/presentation/screens/more_screen.dart';
 import 'package:frifri/src/feature/reservation/presentation/screens/reservation_screen.dart';
+import 'package:frifri/src/feature/search_ticket/presentation/screens/search_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -11,7 +12,8 @@ const _screens = <Widget>[
   AviaTicketScreen(),
   Scaffold(),
   ReservationScreen(),
-  MoreScreen()
+  MoreScreen(),
+  SearchScreen()
 ];
 
 /// {@template navigation_widget}
@@ -101,18 +103,25 @@ class _NavigationWidgetScreenState extends State<NavigationWidgetScreen> {
             ),
           ),
         ),
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(top: 40),
-          child: ClipOval(
-            child: SizedBox(
-              height: MediaQuery.sizeOf(context).height * 0.07,
-              width: MediaQuery.sizeOf(context).width * 0.15,
-              child: ColoredBox(
-                color: const Color.fromRGBO(227, 14, 5, 1),
-                child: FractionallySizedBox(
-                  widthFactor: 0.5,
-                  heightFactor: 0.5,
-                  child: SvgPicture.asset('assets/icons/Search.svg'),
+        floatingActionButton: InkWell(
+          onTap: () {
+            setState(() {
+              currentIndex = 4;
+            });
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(top: 40),
+            child: ClipOval(
+              child: SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.07,
+                width: MediaQuery.sizeOf(context).width * 0.15,
+                child: ColoredBox(
+                  color: const Color.fromRGBO(227, 14, 5, 1),
+                  child: FractionallySizedBox(
+                    widthFactor: 0.5,
+                    heightFactor: 0.5,
+                    child: SvgPicture.asset('assets/icons/Search.svg'),
+                  ),
                 ),
               ),
             ),
@@ -128,7 +137,7 @@ class _NavigationWidgetScreenState extends State<NavigationWidgetScreen> {
 /// CustomNavigationBarItem widget.
 /// {@endtemplate}
 class CustomNavigationBarItem extends StatelessWidget {
-  /// {@macro navigation_widget}
+  
   const CustomNavigationBarItem({
     super.key,
     required this.title,
